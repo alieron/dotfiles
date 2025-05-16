@@ -1,0 +1,10 @@
+width=20%
+hide_search=true
+hide_scroll=true
+normal_window=true
+location=center
+gtk-dark=true
+insensitive=true
+no_actions=true
+single_click=true
+cache_file=/dev/null

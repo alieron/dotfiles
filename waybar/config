@@ -1,0 +1,100 @@
+{
+  "layer": "top",
+  "position": "top",
+  "spacing": 8,
+  // "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+//   "modules-center": ["hyprland/window"],
+  "modules-center": ["clock"],
+  "modules-right": ["temperature", "battery", "pulseaudio", "network"],
+//   "modules-right": ["network", "custom/separator", "battery", "custom/separator", "pulseaudio", "custom/separator", "clock", "custom/separator", "tray" ],
+  "hyprland/window": {
+    "format": "{initialClass}",
+    "interval": 1,
+    "tooltip": false
+  },
+  "hyprland/workspaces": {
+      "persistent-workspaces": {
+        //    "*": 5,
+     }
+  },
+  "temperature": {
+        "format": " {temperatureC:2}°C",
+        "tooltip": false
+    },
+
+    "network": {
+        "format": "",
+        "format-ethernet": "\udb83\udc9d ",
+        "format-wifi": "{icon} ",
+        "format-disconnected": "\udb83\udc9c",
+        "format-icons": ["\udb82\udd2f", "\udb82\udd1f", "\udb82\udd22", "\udb82\udd25", "\udb82\udd28"],
+        "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+        "tooltip-format-ethernet": "{ifname}",
+        "tooltip-format-disconnected": "Disconnected",
+    },
+    "bluetooth": {
+        "format": "\udb80\udcaf",
+        "format-disabled": "\udb80\udcb2",
+        "format-connected": "\udb80\udcb1",
+        "tooltip-format": "{controller_alias}\t{controller_address}",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+    },
+//   "network": {
+//     "format-wifi": "󰤯 {essid}",
+//     "format-ethernet": "󰈀 {ifname}",
+//     "format-disconnected": "󰤮 Disconnected",
+//     "tooltip": true,
+//     "tooltip-format-wifi": "Signal: {signalStrength}% | Down: {bandwidthDownBits}, Up: {bandwidthUpBits}",
+//     "interval": 10
+//   },
+  "clock": {
+    "format": "{:%d/%m/%Y %H:%M}",
+    "tooltip": false,
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "interval": 10
+  },
+  "battery": {
+    "format":"{icon} {capacity:3}",
+    "states": {
+        "full": 100,
+        "three-quarters": 75,
+        "half": 50,
+        "warning": 30,
+        "critical": 20
+    },
+    "format-icons": {
+        "full": "",
+        "three-quarters": "",
+        "half": "",
+        "warning": "",
+        "critical": ""
+    },
+    "interval": 15
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume:3}",
+    "format-muted": " {volume:3}",
+    "format-icons": {
+        "headphone": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["", ""]
+    },
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "interval": 1
+  },
+  "custom/powermenu": {
+    "format": "",
+    "on-click": "~/.config/waybar/powermenu.sh",
+    "interval": "once",
+    "min-length": 2
+  },
+  "custom/separator": {
+    "format": " ",
+    "interval": "once",
+    "tooltip": false
+  }
+}

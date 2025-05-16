@@ -1,0 +1,17 @@
+# ignore everything
+*
+
+# except these directories
+!.gitignore
+!hypr/
+!hypr/*
+!nvim/
+!nvim/*
+!wofi/
+!wofi/*
+!waybar/
+!waybar/*
+!kitty/
+!kitty/*
+!sioyek/
+!sioyek/*

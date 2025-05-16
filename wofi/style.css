@@ -1,0 +1,50 @@
+@define-color base            #1a1a1a;
+@define-color secondary       #464646;
+@define-color text            #eeeeee;
+@define-color green           #78A083;
+@define-color blue            #76ABAE;
+@define-color red             #C94C4C;
+@define-color yellow          #E5C07B;
+@define-color orange          #D08770;
+@define-color purple          #B48EAD;
+
+window {
+    background-color: @base;
+  }
+  
+* {
+  font-family: "JetBrains Mono NL";
+  color: @text;
+}
+
+#scroll {
+  padding: 0.5rem;
+}
+
+#input {
+  background-color: @secondary;
+  outline: none;
+  box-shadow: none;
+  border: 0;
+  border-radius: 0;
+  font-size: 14px;
+  padding: 0.5rem;
+}
+
+#inner-box {
+  margin: 0.5rem;
+  font-size: 14px;
+}
+
+#img {
+  margin: 4px 4px;
+}
+
+#entry {
+  border-radius: 0.5rem;
+}
+
+#entry:selected {
+  background-color: @secondary;
+  outline: none;
+}

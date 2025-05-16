@@ -1,0 +1,80 @@
+" Turn on syntax highlighting
+syntax on
+" Make vim behaves less like vi
+set nocompatible
+" Keep a backup copy of the file being edited
+set backup
+" The Location of the backup files.
+set backupdir=~/.backup
+" Automatically indent the new line
+set autoindent
+" Indent the new line according to C-like syntax
+set smartindent
+" Make default indent at 2 spaces
+set shiftwidth=2
+" Set tab stop to 2
+set tabstop=2
+" Load the relevant plugins and indentation rules based on file types
+filetype plugin indent on
+"
+" Replace all tab with spaces
+set expandtab
+" Display lines longer than the current window on the next line(s)
+set wrap
+" Prevent breaking a word into multiple lines when wrapping
+set linebreak
+" Display line and column number on the lower-right corner.
+set ruler
+" Enable 24-bit colors
+" set termguicolors
+" Use molokai as default color scheme
+color molokai
+" To get around problem with seemingly random characters appear in certain
+" teminals.
+set t_RV=
+set t_u7=
+
+" uncomment to turn on line number
+set number
+
+" vim is optimized for keyboard-only, but if you insist on using mouse,
+" uncomment the following
+" set mouse+=a
+
+" some advanced options requested by students.  Use them only if
+" you know what you are doing (I don't know what they do!)
+" set hidden 
+" set wildmenu 
+" set showcmd 
+" set hlsearch 
+" set confirm 
+" set visualbell 
+" set ignorecase 
+" set smartcase
+
+" For students who are used to using the psvm/sout/sop abbreviation, you can
+" uncomment the following.
+"
+" abbr psvm public static void main(String[] args){<CR>}<esc>O
+" abbr sout System.out.println("");<esc>2hi
+" abbr sop System.out.print("");<esc>2hi
+"
+" Syntastic configuration
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_c_checkers = ['clang_tidy', 'clang_check']
+let g:syntastic_clang_tidy_config_file = 'compile_flags.txt'
+let g:syntastic_clang_check_config_file = 'compile_flags.txt'
+let g:syntastic_c_compiler = 'clang'
+let g:syntastic_c_config_file = 'compile_flags.txt'
+let g:syntastic_java_checkers = ['javac', 'checkstyle']
+let g:syntastic_java_checkstyle_classpath = "~cs2030s/bin/checkstyle.jar"
+let g:syntastic_java_checkstyle_conf_file = "~cs2030s/bin/checkstyle.xml"
+let g:syntastic_sh_checkers = ['shellcheck']
+let g:syntastic_java_javac_options = "-Xlint:rawtypes -Xlint:unchecked"
+let g:syntastic_loc_list_height = 4

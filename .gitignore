@@ -6,7 +6,7 @@
 !hypr/
 !hypr/*
 !nvim/
-!nvim/*
+!nvim/**
 !wofi/
 !wofi/*
 !waybar/

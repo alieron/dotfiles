@@ -10,14 +10,14 @@ case $op in
                 hyprctl --batch "keyword monitor $INTERNAL,preferred,0x0,auto ; keyword monitor $EXTERNAL,disable"
                 ;;
         "  Second Screen Only")
-                hyprctl --batch "keyword monitor $EXTERNAL,preferred,0x0,auto ; keyword monitor $INTERNAL,disable"
+                hyprctl --batch "keyword monitor $EXTERNAL,preferred,0x0,1 ; keyword monitor $INTERNAL,disable"
                 ;;
         "  Extend")
-                hyprctl --batch "keyword monitor $INTERNAL,preferred,0x0,auto ; keyword monitor $EXTERNAL,preferred,auto-left,auto"
+                hyprctl --batch "keyword monitor $INTERNAL,preferred,0x0,auto ; keyword monitor $EXTERNAL,preferred,auto-left,1"
                 ;;
         "  Mirror")
                 # mirror off of the external monitor since external is likely higher res
-                hyprctl --batch "keyword monitor $EXTERNAL,preferred,0x0,auto ; keyword monitor $INTERNAL,preferred,auto,1,mirror,$EXTERNAL"
+                hyprctl --batch "keyword monitor $EXTERNAL,preferred,0x0,1 ; keyword monitor $INTERNAL,preferred,auto,1,mirror,$EXTERNAL"
                 ;;
         "  Secondary Screen Side")
                 # check if external monitor is connected
@@ -27,7 +27,7 @@ case $op in
                         # !!! will not work for up and down due to the regex
                         if hyprctl monitors | grep -qoP -- '-\d+x\-?\d+'; then
                                 # move right
-                                hyprctl keyword monitor "$EXTERNAL,preferred,auto-right,auto"
+                                hyprctl keyword monitor "$EXTERNAL,preferred,auto-right,1"
                         else
                                 hyprctl keyword monitor "$EXTERNAL,preferred,auto-left,auto"
                         fi

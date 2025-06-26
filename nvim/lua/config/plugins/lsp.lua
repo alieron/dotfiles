@@ -42,8 +42,6 @@ return {
 					end
 				end,
 			})
-
-
 		end,
 	}
 }

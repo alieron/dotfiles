@@ -5,6 +5,7 @@ return {
         -- mappings for telescope
         return {
             { "<leader>ff", builtin.find_files, desc = "Find Files" },
+            { "<leader>fa", function() builtin.find_files({no_ignore=true}) end, desc = "Find All"},
             { '<leader>fg', builtin.live_grep, desc = "Find Live Grep" },
             { "<leader>fb", builtin.buffers, desc = "Find Buffers" },
             { "<leader>fr", builtin.oldfiles, desc = "Find Recent" },

@@ -12,6 +12,7 @@ case $op in
                 systemctl reboot
                 ;;
         "  Suspend")
+                loginctl lock-session
                 systemctl suspend
                 ;;
         "  Logout")

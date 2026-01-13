@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # -H is font size(13px)*(2*num_options+1)
-op=$(echo -e "  Poweroff\n  Reboot\n  Suspend\n  Logout" | wofi -i -d -H 117 -c ~/.config/waybar/powermenu_config -s ~/.config/waybar/pmenu_style.css)
+op=$(echo -e "  Poweroff\n  Reboot\n  Suspend\n  Logout" | wofi -i -d -H 117 -c ~/.config/wofi/powermenu_config -s ~/.config/wofi/pmenu_style.css)
 
 case $op in
         "  Poweroff")

@@ -3,7 +3,7 @@ INTERNAL="eDP-1"
 EXTERNAL="HDMI-A-2"
 
 # -H is font size(13px)*(2*num_options+1)
-op=$(echo -e "  Main Screen Only\n  Second Screen Only\n  Extend\n  Mirror\n  Secondary Screen Side" | wofi -i -d -H 143 -c ~/.config/waybar/powermenu_config -s ~/.config/waybar/pmenu_style.css)
+op=$(echo -e "  Main Screen Only\n  Second Screen Only\n  Extend\n  Mirror\n  Secondary Screen Side" | wofi -i -d -H 143 -c ~/.config/wofi/powermenu_config -s ~/.config/wofi/pmenu_style.css)
 
 case $op in
         "  Main Screen Only")

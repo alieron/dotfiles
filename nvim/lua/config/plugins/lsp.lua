@@ -20,10 +20,22 @@ return {
     },
     config = function()
       local capabilities = require('blink.cmp').get_lsp_capabilities()
-      local servers = { 'lua_ls', 'clangd', 'jsonls', 'ts_ls', 'astro', 'jdtls', 'pylsp' }
+      local lspconfig = require("lspconfig")
+
+      lspconfig.basedpyright.setup({
+        capabilities = capabilities,
+        single_file_support = true,
+      })
+
+      lspconfig.ruff.setup({
+        capabilities = capabilities,
+        single_file_support = true,
+      })
+
+      local servers = { 'lua_ls', 'clangd', 'jsonls', 'ts_ls', 'astro', 'jdtls' }
 
       for _, lsp in pairs(servers) do
-        require("lspconfig")[lsp].setup { capabilites = capabilities }
+        lspconfig[lsp].setup { capabilities = capabilities }
       end
 
       vim.api.nvim_create_autocmd('LspAttach', {

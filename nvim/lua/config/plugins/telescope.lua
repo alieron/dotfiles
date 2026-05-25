@@ -18,6 +18,14 @@ return {
       { "<leader>fr", builtin.oldfiles,                                     desc = "Find Recent" },
       { "<leader>fs", builtin.current_buffer_fuzzy_find,                    desc = "Find in Current Buffer" },
       { "<leader>ft", builtin.treesitter,                                   desc = "Find in Treesitter" },
+      {
+        "<leader>fu",
+        function()
+          builtin.git_files({
+            prompt_title = "Unstaged changes", git_command = { "git", "diff", "--name-only", "--diff-filter=ACMR", }, })
+        end,
+        desc = "Find All Unstaged"
+      },
     }
   end,
 }

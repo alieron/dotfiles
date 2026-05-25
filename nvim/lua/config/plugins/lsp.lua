@@ -54,6 +54,18 @@ return {
         'jdtls',
         'svelte',
         'rust_analyzer',
+        'yamlls',
+      })
+
+      -- YAML uses spaces, not tabs
+      vim.api.nvim_create_autocmd('FileType', {
+        pattern = 'yaml',
+        callback = function(args)
+          vim.bo[args.buf].expandtab = true
+          vim.bo[args.buf].tabstop = 2
+          vim.bo[args.buf].shiftwidth = 2
+          vim.bo[args.buf].softtabstop = 2
+        end,
       })
 
       -- Auto-format Lua files on save

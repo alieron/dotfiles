@@ -143,7 +143,7 @@ return {
       map("n", "K", function()
         local winid = require("ufo").peekFoldedLinesUnderCursor()
         if not winid then
-          vim.lsp.buf.hover()
+          vim.lsp.buf.hover({ border = "rounded" })
         end
       end, "Peek fold or hover")
     end,

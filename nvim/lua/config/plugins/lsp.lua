@@ -57,6 +57,13 @@ return {
         'yamlls',
       })
 
+      -- remove trailing whitespace when buffer is written
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        group = vim.api.nvim_create_augroup("XXX/whitespace", {}),
+        pattern = "*",
+        command = [[%s/\s\+$//e]],
+      })
+
       -- YAML uses spaces, not tabs
       vim.api.nvim_create_autocmd('FileType', {
         pattern = 'yaml',
@@ -68,12 +75,28 @@ return {
         end,
       })
 
-      -- Auto-format Lua files on save
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function(args)
           local c = vim.lsp.get_client_by_id(args.data.client_id)
           if not c then return end
-          if vim.bo.filetype == "lua" then
+
+          local ft = vim.bo[args.buf].filetype
+
+          -- Auto-format tabs to spaces in YAML files on save
+          if ft == "yaml" then
+            vim.api.nvim_create_autocmd('BufWritePre', {
+              buffer = args.buf,
+              callback = function()
+                -- Convert literal tab characters to spaces before saving
+                vim.cmd([[silent! %s/\t/  /ge]])
+
+                vim.lsp.buf.format({ bufnr = args.buf, id = c.id })
+              end,
+            })
+          end
+
+          -- Auto-format Lua files on save
+          if ft == "lua" then
             vim.api.nvim_create_autocmd('BufWritePre', {
               buffer = args.buf,
               callback = function()
